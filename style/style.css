@@ -1,0 +1,534 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    flex-direction: column;
+    overflow: hidden;
+    height: 100vh;
+    background: #444;
+    display: block;
+    text-align: center;
+    align-items: center;
+    background-image: url(../img/fondomenu.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.game{
+    position: fixed;
+margin-left: auto;
+margin-right: auto;
+}
+/**
+ * MENÚ INICIO
+ * --------------------------------------------------------
+ * Botones, Banner, Pantalla Principal: Títulos, Footer...
+ * --------------------------------------------------------
+*/
+
+.menuPrincipal {
+    text-align: center;
+    margin: auto
+}
+
+#banner {
+    width: 700px;
+    border-radius: 8%;
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+button {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    cursor: pointer;
+    border: solid;
+    text-shadow: 3px 3px 3px rgb(0, 0, 0);
+    border-color: whitesmoke;
+    background-color: rgb(181, 185, 211);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    font-weight: bold;
+    width: 200px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px black;
+}
+
+
+button:active {
+    position: relative;
+    top: 1px;
+}
+
+
+button:hover {
+    animation: pulse 0.3s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+}
+
+.credits {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    align-items: center;
+}
+
+
+.ranking{
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    display: table;
+    margin: 0 auto;
+}
+
+.ranking th{
+    padding: 20px;
+}
+
+footer {
+    margin-top: 100px;
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    color: white;
+}
+
+.titulo {
+    background-color: #000000;
+    font-weight: bold;
+    color: white;
+    font-size: 45px;
+    text-align: center;
+    width: 700px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Roboto Mono', monospace;
+    text-shadow: 3px 3px 40px rgb(0, 0, 0);
+}
+
+#rules{
+    width: 300px;
+    border-radius: 8%;
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+
+
+/**
+ * JUEGO
+ * --------------------------------------------------------
+ * Espacio del juego, Reloj y Vidas
+ * --------------------------------------------------------
+*/
+.contenedor {
+    width: 920px;
+    height: 280px;
+    margin-left: 290px;
+    bottom: 215px;
+    position: fixed;
+    overflow: hidden;
+    background: linear-gradient(#6c6c8bad, #1d1e22);
+}
+
+.vida {
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    bottom: 500px;
+    left: 293px;
+    z-index: 100;
+    background: url(../img/vida.png);
+}
+
+#vida2 {
+    left: 355px;
+}
+
+#vida3 {
+    left: 415px;
+}
+
+/*RELOJ*/
+.contador {
+    position: fixed;
+    left: 400px;
+    color: white;
+    font-size: 45px;
+    width: 700px;
+    height: 433px;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 3px 3px 40px rgb(0, 0, 0);
+    z-index: 2;
+    bottom: 130px;
+}
+
+#mostrarContador {
+    font-family: 'Roboto Mono', monospace;
+}
+
+
+
+/**
+ * ESCENARIOS
+ * --------------------------------------------------------
+ * Fondos y animaciones
+ * --------------------------------------------------------
+*/
+.score {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 10;
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    text-shadow: 0 0 20px #000000;
+}
+
+.metro {
+    width: 2085px;
+    height: 147px;
+    position: absolute;
+    bottom: 42px;
+    left: -2086px;
+    background: url(../img/metroLargo.png);
+    background-size: 2085px 147px;
+    background-position-x: 0px;
+    z-index: 2;
+}
+
+.suelo {
+    width: 200%;
+    height: 42px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(../img/suelo-metro.png) repeat-x 0px 0px;
+    background-size: 50% 42px;
+    z-index: 3;
+}
+
+.rotulo {
+    width: 200%;
+    height: 280px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(../img/rotulo2.png) repeat-x 0px 0px;
+    background-size: 50% 60px;
+    z-index: 2;
+}
+
+.fondo {
+    width: 200%;
+    height: 457px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background: url(../img/fondo2.png);
+    z-index: 1;
+}
+
+/**
+ * PARTIDA FINALIZADA
+ * --------------------------------------------------------
+ * Game Over, Resultados, Animaciones de Evento Final
+ * --------------------------------------------------------
+*/
+
+.game-over {
+    display: none;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    color: gold;
+    font-size: 80px;
+    box-shadow: inset 2px 6px 88px 73px rgba(0, 0, 0, 0.75);
+    font-family: 'verdana';
+    bottom: 288px;
+    text-shadow: 0px 0px 40px rgb(0, 0, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+.confetti {
+    opacity: 0;
+    position: absolute;
+    width: 1rem;
+    height: 1.5rem;
+    transition: 500ms ease;
+    animation: confettiRain 0.5s;
+    z-index: 100;
+}
+
+#confetti-wrapper {
+    overflow: hidden !important;
+}
+
+.result {
+    opacity: 0;
+    font-family: 'Roboto Mono', monospace;
+    position: absolute;
+    width: 100%;
+    z-index: 101;
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    left: 0px;
+    bottom: 59px;
+    padding: 3px;
+    background-size: 50px;
+    text-shadow: 0px 0px 40px rgb(0, 0, 0);
+    text-justify: inter-word;
+    align-items: center;
+}
+
+.blurred-box {
+    opacity: 0;
+    position: relative;
+    width: 250px;
+    height: 230px;
+    left: 345px;
+    bottom: -30px;
+    background: inherit;
+    border-radius: 2px;
+    overflow: hidden;
+    z-index: 100;
+    border-radius: 50px;
+}
+
+.blurred-box:after {
+    content: '';
+    width: 300px;
+    height: 300px;
+    background: inherit;
+    position: absolute;
+    left: -25px;
+    right: 0;
+    top: -25px;
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(250, 252, 253, 0.568);
+    filter: blur(80px);
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes confettiRain {
+    0% {
+        opacity: 1;
+        margin-top: -100vh;
+        margin-left: -200px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 100vh;
+        margin-left: 200px;
+    }
+}
+
+/**
+ * PLAYER
+ * --------------------------------------------------------
+ * Sprites del jugador + sus animaciones
+ * --------------------------------------------------------
+*/
+
+.player {
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    bottom: 22px;
+    left: 42px;
+    z-index: 100;
+
+    background: url(../img/ninotet.png) repeat-x 0px 0px;
+    background-size: 336px 84px;
+    background-position-x: 0px;
+
+}
+
+.player-run {
+    animation: animarPlayer 0.25s steps(2) infinite;
+}
+
+.player-hit {
+    background-position-x: -253px;
+    animation: blinking 0.3s infinite;
+}
+
+@keyframes blinking {
+    0% {
+        opacity: 50%;
+        border-radius: 50%;
+        background-color: lavender;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+@keyframes animarPlayer {
+    from {
+        background-position-x: -84px;
+    }
+
+    to {
+        background-position-x: -252px;
+    }
+}
+
+
+/**
+ * OBSTÁCULOS
+ * --------------------------------------------------------
+ * Sprites de los enemigos + sus animaciones
+ * --------------------------------------------------------
+*/
+.obstaculoProsegur {
+    width: 101px;
+    height: 103px;
+    position: absolute;
+    bottom: 16px;
+    left: 680px;
+    background: url(../img/prosegur.png);
+    z-index: 9;
+}
+
+.obstaculoYaya {
+    width: 63px;
+    height: 74px;
+    position: absolute;
+    bottom: 30px;
+    left: 680px;
+    background: url(../img/yaya.png);
+    z-index: 9;
+}
+
+.obstaculoCaco {
+    width: 170px;
+    height: 91px;
+    position: absolute;
+    bottom: 30px;
+    left: 680px;
+    background: url(../img/caco.png);
+    z-index: 9;
+}
+
+.obstaculoCable {
+    width: 47px;
+    height: 113px;
+    position: absolute;
+    bottom: 168px;
+    left: 680px;
+    z-index: 9;
+
+    background: url(../img/cable.png) repeat-x 0px 0px;
+    background-size: 94px 113px;
+    background-position-x: 0px;
+    animation: animarCable 0.2s steps(2) infinite;
+}
+
+@keyframes animarCable {
+    from {
+        background-position-x: 0px;
+    }
+
+    to {
+        background-position-x: -93px;
+    }
+}
+
+/**
+ * LETRAS
+ * --------------------------------------------------------
+ * Sprites de las letras bonus
+ * --------------------------------------------------------
+*/
+.letra {
+    width: 47px;
+    height: 45px;
+    position: absolute;
+    z-index: 100;
+    background: url(../img/letraF.png) no-repeat;
+    background-size: 94px 45px;
+    background-position-x: 0;
+    animation: animarLetra 0.5s steps(2) infinite;
+}
+
+@keyframes animarLetra {
+    from {
+        background-position-x: 0px;
+    }
+
+    to {
+        background-position-x: -93px;
+    }
+}
+
+.contenedorLetras {
+    width: 112px;
+    height: 95px;
+    position: absolute;
+margin-left: 250px;
+}
+
+.letrita {
+    width: 112px;
+    height: 95px;
+    position: fixed;
+    left: 350px;
+    bottom: 50px;
+}
